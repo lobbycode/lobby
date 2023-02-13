@@ -2,8 +2,8 @@
   <div class="container pt-12 pt-lg-8 pb-14 pb-md-17">
     <div class="row text-center">
       <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-        <h2 class="fs-16 text-uppercase text-primary mb-3">ما هي خدماتنا</h2>
-        <h3 class="display-3 mb-10 px-xxl-10">تم تصميم الخدمة التي نقدمها خصيصا لتلبية احتياجاتك لنسهل وصول خدماتك لجميع عملائك</h3>
+        <h1 class="fs-16 text-uppercase text-primary mb-3">ما هي خدماتنا</h1>
+        <h3 class="display-2 mb-10 px-xxl-10">تم تصميم الخدمة التي نقدمها خصيصا لتلبية احتياجاتك لنسهل وصول خدماتك لجميع عملائك</h3>
       </div>
       <!-- /column -->
     </div>

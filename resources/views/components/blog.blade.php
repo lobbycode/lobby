@@ -21,10 +21,10 @@
               <div class="col-12 col-md-6 col-lg-4 p-2 my-lg-3 ">
                 <a href="{{route('article.show',$article)}}">
                 <div class="col-12 p-0 article-section position-relative d-flex align-items-center justify-content-center font-3 font-lg-5 rounded" style="height:200px;overflow: hidden;">
-                  <div style="background-image:url('{{$article->main_image()}}');padding: 20px;height: 100%;background-size: cover;background-position: center;border-radius: 8px;color: #fff;width: 100%;position: absolute;"></div>
-                  <div style="z-index:1;color:#fff;font-weight:bold;">{{$article->title}}</div>
+                  <div style="background-image:url('{{$article->main_image()}}');padding: 20px;height: 100%;background-size: cover;background-position: center;border-radius: 8px;color: #fff;width: 100%;position: absolute;"></div> 
                 </div>
-                </a>
+                <div style="z-index:1;color:#223badec;font-weight:bold;">{{$article->title}}</div>
+              </a>
               </div>
               @endforeach
           
