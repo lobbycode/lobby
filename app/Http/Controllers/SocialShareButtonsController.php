@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 
 class SocialShareButtonsController extends Controller
 {
-    public function ShareWidget()
+    public function ShareWidget(Request $request)
     {
         $shareComponent = \Share::page(
-            'https://www.positronx.io/create-autocomplete-search-in-laravel-with-typeahead-js/',
-            'Your share text comes here',
+            $request->url(),
+            'text share here',
         )
+        
         ->facebook()
         ->twitter()
         ->linkedin()

@@ -83,7 +83,8 @@
                                 </div>
 
                             </div>
-                            <li class=" d-block"><a href="{{route('facebook')}}" class="naskh py-2 d-block" style="text-decoration: none!important;"><span class="fas fa-circle font-small" ></span> دخول فيس بوك</a></li>
+                            <li class=" d-block"><a href="{{route('redirect','google')}}" class="naskh py-2 d-block" style="text-decoration: none!important;"><span class="fas fa-circle font-small" ></span> دخول حساب جوجل</a></li>
+                            <li class=" d-block"><a href="{{route('redirect','facebook')}}" class="naskh py-2 d-block" style="text-decoration: none!important;"><span class="fas fa-circle font-small" ></span> دخول حساب فيس بوك</a></li>
                         </div>
                         
                         <div class="nafezly-divider-right" style="    background-image: linear-gradient( 90deg,transparent,rgb(0 0 0/72%));right: auto;left: 10px;opacity: .1;margin: 14px 0;min-height: 2px;"></div>

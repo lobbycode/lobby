@@ -1,11 +1,18 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Auth;
+use App\Models\User;
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\Controller;
 use App\Models\SocialMediaSetting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+
 class SocialMediaAuthController extends Controller
 {
     /*public function __construct()
@@ -13,6 +20,29 @@ class SocialMediaAuthController extends Controller
         $this->middleware('IsAdmin');
     }*/
     public $_SOCIAL_MEDIA_SETTINGS;
+    public function redirect($provider){
+            return Socialite::driver($provider)->redirect();
+    }
+    public function callback($provider){
+            $user = Socialite::driver($provider)->user();
+           // dd($user);
+            $user = User::firstOrCreate([
+                   'email' => $user->email
+            ],[
+              'name' => $user->name,
+              'password'=>Hash::make(Str::random(10)),
+              'avatar' => $user->picture,
+              
+            ]);
+            Auth::login($user);
+            return redirect('/');
+    }
+    public function socialshare($request){
+      dd($request);
+      $url = 'http://127.0.0.1:8000/article/%D8%B3%D8%A4%D8%A7%D9%84';
+      $text = 'hi';
+      return view('socialshare', compact('url', 'text'));
+    }
     public function handleProviderCallback_facebook_poster(){
         session_start();
         $this->_SOCIAL_MEDIA_SETTINGS=SocialMediaSetting::first();

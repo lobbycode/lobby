@@ -121,6 +121,12 @@ pre[class*=language-] {
                                 </ol>
                             </div>
                             @endif
+                           {{-- <a href="{{ route('social-media-share', ['provider' => 'facebook', 'url' => urlencode(request()->fullUrl())]) }}" class="btn btn-primary"><i class="fa fa-facebook"></i>Share</a> --}}
+                           <a href="https://www.facebook.com/sharer/sharer.php?u={{urlencode (request()->fullUrl())}}&image={{$article->main_image()}}" class="btn btn-primary" target="_blank"><i class="fab fa-facebook-f"></i></a> 
+                           <a href="https://twitter.com/intent/tweet?url={{ Request::url()}}text={{$article->title}}" target="_blank" class="btn btn-primary"><i class="fab fa-twitter"></i></a> 
+                           <a href="https://wa.me/?text={{$article->title}}{{ Request::url()}}" target="_blank" ><i class="fab fa-whatsapp"></i></a> 
+                           <a href="https://telegram.me/share/url?url={{ Request::url()}}&text={{$article->title}}" target="_blank"><i class="fab fa-telegram"></i></a> 
+                            هنا سوشيال شير
                             <hr />
                             <h3 class="mb-3">شاركنا رأيك</h3>
                             <p class="mb-7">بريدك الالكتروني لن يتم نشره.</p>

@@ -28,6 +28,7 @@ use App\Http\Controllers\Backend\BackendUserRoleController;
 use App\Http\Controllers\Backend\BackendRoleController;
 use App\Http\Controllers\Backend\BackendTagController;
 use App\Http\Controllers\Backend\BackendPluginController;
+use App\Http\Controllers\Backend\PdfController;
 use App\Http\Controllers\Auth\SocialMediaAuthController;
 
 
@@ -131,9 +132,13 @@ Route::get('blog',[FrontController::class,'blog'])->name('blog');
 Route::post('contact',[FrontController::class,'contact_post'])->name('contact-post');
 Route::post('comment',[FrontController::class,'comment_post'])->name('comment-post');
 
-Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);
+Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget'])->name('social-media-share');
 
-Route::get('/login/facebook_poster/authenticate_facebook_application', [SocialMediaAuthController::class,'authenticate_facebook_application'])->name('facebook');
+
+Route::get('/auth/{provider}/login', [SocialMediaAuthController::class,'redirect'])->name('redirect');
+Route::get('/auth/{provider}/callback', [SocialMediaAuthController::class,'callback'])->name('callback');
+Route::get('/socialshare', [SocialMediaAuthController::class,'socialshare'])->name('socialshare');
+
 Route::get('/login/linkedin_poster/authenticate_linkedin_application', 'SocialMediaAuthController@authenticate_linkedin_application');
 Route::get('/login/facebook_poster/callback', 'SocialMediaAuthController@handleProviderCallback_facebook_poster');
 Route::get('/login/linkedin-callback-poster', 'SocialMediaAuthController@handleProviderCallback_linkedin_poster');

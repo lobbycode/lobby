@@ -18,8 +18,8 @@ class GeneralNotification extends Notification /*implements ShouldQueue*/
 
     public $tries = 2;
     public $timeout = 10;
-
-    public function __construct(){
+    public $article; 
+    public function __construct( $article=[]){
         $this->subject="اشعار جديد";
         $this->greeting="مرحباً";
         $this->actionUrl=env("APP_URL");
@@ -27,8 +27,11 @@ class GeneralNotification extends Notification /*implements ShouldQueue*/
         $this->methods=['database'];
         $this->image=env("DEFAULT_IMAGE_AVATAR");
         $this->actionUrl=env("APP_URL");
+        $this->article = $article;
+       //dd($this->article);
     }
-
+  
+    
     public function via($notifiable){ 
         return $this->methods;
     }
@@ -42,8 +45,8 @@ class GeneralNotification extends Notification /*implements ShouldQueue*/
     } 
     public function toDatabase($notifiable){
         return [
-            'message'=>'<a href="'.$this->actionUrl.'">'.$this->content.'</a>',
-            'image'=>$this->image, 
+            'message'=>'<a href="'.$this->article['slug'].'">'.$this->article['title'].'</a>',
+            'image'=>$this->article['main_image'], 
         ];
     } 
 }

@@ -7,16 +7,21 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Notifications\GeneralNotification;
+use Illuminate\Support\Facades\Notification;
 
 class BackendArticleController extends Controller
 {
-    
+
+   
     public function __construct()
     {
         $this->middleware('can:articles-create', ['only' => ['create','store']]);
         $this->middleware('can:articles-read',   ['only' => ['show', 'index']]);
         $this->middleware('can:articles-update',   ['only' => ['edit','update']]);
         $this->middleware('can:articles-delete',   ['only' => ['delete']]);
+    
     }
 
 
@@ -79,6 +84,8 @@ class BackendArticleController extends Controller
             $article->update(['main_image'=>$main_image->id.'/'.$main_image->file_name]);
         }
         toastr()->success(__('utils/toastr.article_store_success_message'), __('utils/toastr.successful_process_message'));
+        $users = User::all();
+        Notification::send($users, new GeneralNotification($article));
         return redirect()->route('admin.articles.index');
     }
 

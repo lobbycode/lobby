@@ -2,7 +2,7 @@
     @csrf
 </form>
 
-<div class="col-12 fixed-top  main-nav shadow" style="background: rgb(255, 255, 255);padding: 3px 0px;min-height: 65px;">
+<div class="col-12 fixed-top  main-nav shadow" style="background: rgba(222, 224, 255, 0.952);padding: 3px 0px;min-height: 65px;">
     <div class="container px-1 my-auto">
         <div class="col-12 row p-0">
             <div class="col-auto p-3 d-flex align-items-center hover-main-color-flexable" onclick="document.getElementById('aside-menu').classList.toggle('active');document.getElementById('body-overlay').classList.toggle('active');" style="cursor: pointer;">

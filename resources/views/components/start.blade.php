@@ -20,7 +20,7 @@
       </div>
       <!--/column -->
       <div class="col-lg-6 offset-lg-1 col-xxl-5 text-center text-lg-start" data-cues="slideInDown" data-group="page-title" data-delay="600">
-        <h1 class="display-2 mb-5">ابدأ عملك الآن معنا واحصل على باقة من أفضل الخدمات ,,, </h1>
+        <h1 class="display-2 mb-5">ابدأ عملك الآن معنا واحصل على باقة من أفضل الخدمات وحصريا لك ,,, </h1>
         <p class="lead fs-25 lh-sm mb-7 px-md-10 px-lg-0">
         <div class="d-flex justify-content-center justify-content-lg-start" data-cues="slideInDown" data-group="page-title-buttons" data-delay="900">
           <span><a href="{{route('contact')}}" class="btn btn-lg btn-outline-primary rounded-pill">تواصل معي</a></span>

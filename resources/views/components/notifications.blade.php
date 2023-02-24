@@ -22,7 +22,10 @@ $bg = $notification['read_at']==null ?"var(--border-color)":"#ffffff";
             <div>
                 <div style=" font-size: 14px ;font-weight: normal; " class="px-0 pt-0 cairo  ">
                     <span style="display: block; word-wrap: break-word" class="naskh-inner naskh font-1">
-                       {!!$notification->data['message']!!}
+                        @if(array_key_exists('message', $notification->data))
+                        {!! $notification->data['message'] !!}
+                    @endif
+                    
                     </span>
                 </div>
                 <div style=" display: inline-block;position: relative;font-size: 14px;color: #919191">
